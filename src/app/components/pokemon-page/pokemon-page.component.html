@@ -1,0 +1,93 @@
+
+
+
+<div *ngIf="pokemon">
+  <div style="width: 100%; height: 1024px; position: relative; " [ngStyle]="{ 'background-color': getPokemonBackgroundColor() }">
+    <div style="width: 1000px; height: 880px; left: 122px; top: 144px; position: absolute">
+      <div style="width: 1000px; height: 880px; left: 0px; top: 0px; position: absolute">
+        <div style="width: 1000px; height: 795px; left: 0px; top: 85px; position: absolute; background: #FAFAFA; border-top-left-radius: 48px; border-top-right-radius: 48px">
+        </div>
+        <img style="width: 170px; height: 170px; left: 400px; top: 0px; position: absolute" [src]="pokemon?.sprites.front_default" />
+        <div style="width: 335px; left: 320px; top: 170px; position: absolute; text-align: center; color: #4F4F4F; font-size: 40px; font-family: Abel; font-weight: 400; word-wrap: break-word">{{pokemon?.name}}</div>
+        <div class="center">
+          <div class="container">
+
+            <div class="column" *ngFor="let type of pokemon?.types; let index = index">
+              <div style="width: 162.25px; height: 45px; position: relative; flex-direction: column; justify-content: center; align-items: center; display: flex">
+                <div [ngStyle]="{ 'background-color': getTypeColor(type.type.name), 'box-shadow': getTypeColor(type.type.name) }" style="width: 162.25px; height: 45px;   border-radius: 104px;justify-content: center; align-items: center; display: flex">{{ type.type.name }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width: 972px; left: 30px; top: 328px; position: absolute; text-align: center; color: #4F4F4F; font-size: 18px; font-family: Abel; font-weight: 400; word-wrap: break-word">
+        {{ pokemon?.description }}</div>
+      <div style="width: 710px; height: 75px; left: 100px; top: 408px; position: absolute">
+        <div style="width: 710px; height: 75px; left: 0px; top: 0px; position: absolute; background: #FAFAFA"></div>
+        <div style="width: 609.65px; height: 40px; left: 45.44px; top: 18px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+          <div style="width: 177px; height: 60px; padding-left: 7.38px; padding-right: 7.38px; padding-top: 7.50px; padding-bottom: 7.50px; left: 448px; top: 0px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+            <div style="width: 162.25px; height: 45px; position: relative; flex-direction: column; justify-content: center; align-items: center; display: flex">
+              <div [ngStyle]="{ 'background-color': getPokemonBackgroundColor(), 'box-shadow': getPokemonBackgroundColor()}" style="width: 162.25px; height: 45px;   border-radius: 104px;justify-content: center; align-items: center; display: flex" (click)="selected = 1">EVOLUTIONS</div>
+            </div>
+          </div>
+          <div style="width: 177px; height: 60px; padding-left: 7.38px; padding-right: 7.38px; padding-top: 7.50px; padding-bottom: 7.50px; left: 224px; top: 0px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+            <div style="width: 162.25px; height: 45px; position: relative; flex-direction: column; justify-content: center; align-items: center; display: flex">
+              <div [ngStyle]="{ 'background-color': getPokemonBackgroundColor(),  'box-shadow': getPokemonBackgroundColor() }" style="width: 162.25px; height: 45px;   border-radius: 104px;justify-content: center; align-items: center; display: flex" (click)="selected = 2">MOVES</div>
+            </div>
+          </div>
+
+          <div style="width: 177px; height: 60px; padding-left: 7.38px; padding-right: 7.38px; padding-top: 7.50px; padding-bottom: 7.50px; left: 0px; top: 0px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+            <div style="width: 162.25px; height: 45px; position: relative; flex-direction: column; justify-content: center; align-items: center; display: flex">
+              <div [ngStyle]="{ 'background-color': getPokemonBackgroundColor(),  'box-shadow': getPokemonBackgroundColor() }" style="width: 162.25px; height: 45px; ;  border-radius: 104px;justify-content: center; align-items: center; display: flex" (click)="selected = 0">STATS</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div *ngIf="selected == 0">
+      <div style="width: 39px; height: 67px; left: 122px; top: 77px; position: absolute; " [ngStyle]="{ 'background-color': getPokemonBackgroundColor()}" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="39" height="67" viewBox="0 0 39 67" fill="none">
+          <path d="M11.7693 33.5L37.5721 8.16973C39.476 6.30079 39.476 3.27064 37.5721 1.4017C35.6683 -0.467235 32.5817 -0.467235 30.6779 1.4017L1.42785 30.116C-0.475952 31.9849 -0.475952 35.0151 1.42785 36.884L30.6779 65.5983C32.5817 67.4672 35.6683 67.4672 37.5721 65.5983C39.476 63.7294 39.476 60.6992 37.5721 58.8303L11.7693 33.5Z" fill="#FAFAFA"/>
+        </svg>
+      </div>
+      <div style="width: 400px; height: 165px; left: 400px; top: 659px; position: absolute" >
+        <div style="width: 400px; height: 165px; left: 0px; top: 0px; position: absolute; background: #FAFAFA"></div>
+        <div style="width: 500px; height: 138px; left: 33px; top: 14px; position: absolute" *ngFor="let stat of pokemon?.stats; let index = index">
+          <div [ngStyle]="{'top.px': (index + 1)* 24 + 5}" style="width: 240px; height: 8px; left: 89px;  position: absolute; background: #F0F0F0; border-radius: 4px"></div>
+          <div [ngStyle]="{'top.px': (index + 1)* 24 + 5, 'width.px': stat.base_stat, 'background-color': getPokemonBackgroundColor()}" style=" height: 8px; left: 89px;  position: absolute; border-radius: 4px"></div>
+          <div [ngStyle]="{'top.px': (index + 1)* 24}" style="width: 30px; left: 55px;  position: absolute; text-align: right; color: #666666; font-size: 14px; font-family: Abel; font-weight: 400; word-wrap: break-word">{{stat.effort}}</div>
+          <div [ngStyle]="{'top.px': (index + 1)* 24, 'color': getPokemonBackgroundColor()}" style="width: 100px; left: 0px;  position: absolute;  font-size: 12px; font-family: Abel; font-weight: 400; word-wrap: break-word"> {{stat.stat.name}}</div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selected == 2">
+      <div style="width: 375px; height: 75px; left: 223px; top: 659px; position: absolute">
+        <div style="width: 375px; height: 75px; left: 0px; top: 0px; position: absolute"
+        >
+          <div *ngFor="let move of moves">
+            <div style="width: 197px; color: #4F4F4F; font-size: 19px; font-family: Abel; font-weight: 400; word-wrap: break-word">{{move.name}}</div>
+            <div style="width: 197px;  color: #A4A4A4; font-size: 15px; font-family: Abel; font-weight: 400; word-wrap: break-word">{{ move.effect_entries[0].effect }}</div>
+            <div style="width: 355px; height: 1px;  background: #E3E3E3"></div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="selected == 1">
+    </div>
+  </div>
+</div>
+<div *ngIf="pokemon == null">
+  <div style="width: 100%; height: 600px; position: relative; background: #FE5858">
+    <img style="width: 260px; height: 370px; left: 440px; top: 177px; position: absolute" src="assets/image.png" />
+    <div style="left: 353px; top: 26px; position: absolute; color: white; font-size: 75px; font-family: Single Day; font-weight: 400; word-wrap: break-word">No Pokemon Found!</div>
+    <div style="width: 39px; height: 67px; left: 122px; top: 77px; position: absolute; " [ngStyle]="{ 'background-color': '#FE5858'}" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="39" height="67" viewBox="0 0 39 67" fill="none">
+        <path d="M11.7693 33.5L37.5721 8.16973C39.476 6.30079 39.476 3.27064 37.5721 1.4017C35.6683 -0.467235 32.5817 -0.467235 30.6779 1.4017L1.42785 30.116C-0.475952 31.9849 -0.475952 35.0151 1.42785 36.884L30.6779 65.5983C32.5817 67.4672 35.6683 67.4672 37.5721 65.5983C39.476 63.7294 39.476 60.6992 37.5721 58.8303L11.7693 33.5Z" fill="#FAFAFA"/>
+      </svg>
+    </div>
+  </div>
+</div>

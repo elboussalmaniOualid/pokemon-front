@@ -1,0 +1,78 @@
+.pokemon-container{
+  margin-top: 77px;
+  margin-left: 122px;
+  margin-right: 122px;
+}
+.card{
+  margin-top: 85px;
+}
+.card-container{
+  border-radius: 48px 48px 0px 0px;
+  background: #FAFAFA;
+}
+.name{
+  color: #4F4F4F;
+  text-align: center;
+  font-family: Abel;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 85px;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+.btn{
+  width: 162.25px;
+  height: 45px;
+  flex-shrink: 0;
+  border-radius: 104px;
+  background: #5DBE62;
+  box-shadow: 0px 0px 10px 0px rgba(93, 190, 98, 0.70);
+}
+.disc{
+  color: #4F4F4F;
+  text-align: center;
+  font-family: Abel;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 972px;
+}
+.btn-no-active{
+  color: #5DBE62;
+  text-align: center;
+  font-family: Abel;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.078px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+   height: 60px; top: 221px; justify-content: center; display: flex; position: relative;
+}
+
+.column {
+  flex: 1;
+
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
